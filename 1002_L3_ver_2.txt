@@ -1,0 +1,416 @@
+server.context.xml
+-1001하나도 기억안남 
+jsp 리스트를 만들어야함.
+
+
+
+<Resouce auth="Container"
+driverClassName="oracle.jdbc.driver.OracleDriver"
+name="jdbc/oracle"
+username="scott"
+password="tiger"
+type="javax.sql.DataSource"
+url="jdbc:oracle:thin@localhost:1521:xe"
+/>
+
+server.xml.xml
+-1001하나도 기억안남
+web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+ create 기억안남
+ create table people (
+id VARCHAR2 (2) not null, 
+name varchar2(30) not null,
+dept varchar2(20) not null,
+position number(1),
+duty VARCHAR2(20),
+phone VARCHAR2(14)
+
+);
+
+alter table people add CONSTRAINT pk_unique_l unique (id);
+alter table people add CONSTRAINT pk_unique_l FOREIGN key dept people_dept(id);
+
+select * from people;
+
+drop table people_dept;
+
+create table people_dept(
+dept varchar2(20) not null
+);
+
+
+);
+pk키 기억안남 foeignkey
+SCOTT @ ORACLE >   CREATE TABLE test05(
+  2     hh number,
+  3     ii number,
+  4     jj VARCHAR(10) NOT NULL,
+  5  CONSTRAINT test05_hh_pk PRIMARY KEY (hh),
+  6  CONSTRAINT test05_ii_uk UNIQUE (ii)
+  7  );
+ 
+eg)2
+alter table people add CONSTRAINT pk_unique_l unique (id);
+
+-)webcontent.web-inf.lib.jstl-1.2.jar
+
+-)fildset
+-)fildset/legend
+->)이하 검색방법 href onclick
+-)<a id="myLink" href="#" onclick="MyFunction();return false;">link text</a>
+-eg)<a id="colse" href"#" onclick="MyFunction();return false;">종료</a>
+-)boardlist에서 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  //jstl임포트
+-)<script>
+	function closeWin() {
+		window.open('about:blank','_self').close();
+		}
+	</script>
+-)<form>
+  <input type="radio" name="fruit" checked="checked" value="사과" /> 사과
+  <input type="radio" name="fruit" value="바나나" /> 바나나
+</form>  //name이름을 같게주세요 두개다 안 눌려져요.
+-)selectbox
+-)&nbsp;
+-)등록시에 폴잉키 필요없음 
+-)등록하면 등록되고 화면에대한 오더가 없어서 취소는 메인화면으로간다길래
+취소를 참조하여 즉 등록=메인화면go
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    fieldset{line-height:180%}
+    </style>
+</head>
+<body>
+    <!---->
+    <!--label for=a1-->
+    <!--divfh  나누던지 뭘??-->
+    <!--적용됬으나 표준은 checked="checked"-->
+    <!--input name="l1" 양쪽에 적용해야 !둘중에 한개만 선택이 가능함.-->
+    <fieldset>
+        <legend>인사관리조회</legend>
+        <input name="l1" type="radio" id="a1">
+        <label  for=a1>사원번호로 조회</lavel>
+        <input type="text">
+        <br>
+        <input name="l1" type="radio" checked="checked">    
+        <label>부서명으로 조회</label>
+        <select height:64px>
+            <option>인사부</option>
+            <option>총무부</option>
+            <option>관리부</option>
+            <input class="submit" type="submit" value="조회">
+            <button>취소</button>
+        </select>
+    </fieldset>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+20191002_L3_ver_2
+!!!!!!!! mvc모델중 c=controler없음
+!!!!!!! 부모메소드 는 자식이 받고 자식꺼는 자식꺼 
+(-)border-collapse: collapse;
+(-)t1 {font-weight:bold; text-align:center}
+(_)<h1 align=center>
+tr에서 정렬   align="center"
+(-)콘솔에서 정보: Server startup in 743 ms 면 db연결하고 첫 서버 돌릴때 바로 커밋종료 뜨면
+ 즉 커밋을 하세요.
+()
+
+"custom01_list.jsp""
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "model.*" %>
+<%@ page import = "java.util.ArrayList" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<%
+CustomDAOImpl cst_dao = CustomDAOImpl.getInstance();
+ArrayList<CustomVO> customs = cst_dao.readList();
+%>
+  <h1>회원목록조회</h1>
+  <table border="1">
+    <tr>
+      <td>회원아이디</td>
+      <td>회원이름</td>
+      <td>이메일</td>
+      <td>연락처</td>
+    </tr>
+    <%
+    for(CustomVO cst : customs) 
+    {
+    %>
+    <tr>
+      <td><%= cst.getP_id() %></td>
+      <td><%= cst.getC_name() %></td>
+      <td><%= cst.getC_email() %></td>
+      <td><%= cst.getC_tel() %></td>
+    </tr>
+    <%
+    }
+    %>
+  </table>
+</body>
+</html>
+
+
+
+
+
+
+
+"custom01_list.jsp"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "model.*" %>
+<%@ page import = "java.util.ArrayList" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<%
+CustomDAOImpl cst_dao = CustomDAOImpl.getInstance();
+ArrayList<CustomVO> customs = cst_dao.readList();
+%>
+  <h1>회원목록조회</h1>
+  <table border="1">
+    <tr>
+      <td>회원아이디</td>
+      <td>회원이름</td>
+      <td>이메일</td>
+      <td>연락처</td>
+    </tr>
+    <%
+    for(CustomVO cst : customs) 
+    {
+    %>
+    <tr>
+      <td><%= cst.getP_id() %></td>
+      <td><%= cst.getC_name() %></td>
+      <td><%= cst.getC_email() %></td>
+      <td><%= cst.getC_tel() %></td>
+    </tr>
+    <%
+    }
+    %>
+  </table>
+</body>
+</html>
+<!-- - javabin으로 생성합니다. java 를 넣을께요. -->
+
+
+
+
+ 
+
+"CustomDAOImpl.class"
+/*private 몇개 있음  자기자신을 생성. 싱글톤에 해당되는 코드 꼭 붕어빵틀을 만들필요가 있거나
+붕어빵을 원하는게 아니라 조회를 위해서 필요할뿐 메서드위해서 붕어빵틀(리소스를 낭비)할 필요없다.
+...놓침 gotconnection  만들고 쿼리문 돌리고 
+mvc모델중 c=controler없음
+Statement 썼다. freeStatement 사용 가능하고
+*/
+package model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class CustomDAOImpl extends DAOBase {
+	private static CustomDAOImpl instance = new CustomDAOImpl();
+	public static CustomDAOImpl getInstance() {
+		return instance;
+	}
+	private CustomDAOImpl() { }	
+	
+	public ArrayList<CustomVO> readList() throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		ArrayList<CustomVO> customs = new ArrayList<CustomVO>();
+		try {
+			conn = getConnection();
+			sql = "Select * from custom_01";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				do {
+					CustomVO cst = new CustomVO();
+					cst.setP_id(rs.getString(1));
+					cst.setP_pw(rs.getString(2));
+					cst.setC_name(rs.getString(3));
+					cst.setC_email(rs.getString(4));
+					cst.setC_tel(rs.getString(5));
+					customs.add(cst);
+				} while (rs.next());
+			}
+		} catch (Exception e){
+			e.printStackTrace();
+		} finally {
+			closeDBResources(rs, pstmt, conn);
+		}
+		return customs;
+	}
+
+}
+
+
+
+
+
+
+
+
+"CustomDAOImpl.class"
+package model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CustomDAOImpl extends DAOBase {
+	private DAOBase dao;
+	public List<CustomVO> readList() throws SQLException {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		ArrayList<CustomVO> customs = new ArrayList<CustomVO>();
+		try {
+			conn = dao.getConnection();
+			sql = "Select * from custom_01";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				do {
+					CustomVO cst = new CustomVO();
+					cst.setP_id(rs.getString(1));
+					cst.setP_pw(rs.getString(2));
+					cst.setC_name(rs.getString(3));
+					cst.setC_email(rs.getString(4));
+					cst.setC_tel(rs.getString(5));
+					customs.add(cst);
+				} while (rs.next());
+			}
+		} catch (Exception e){
+			e.printStackTrace();
+		} finally {
+			dao.closeDBResources(rs, stmt, conn);
+		}
+		return customs;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+"DAOBase.class"
+package model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DAOBase {
+	public Connection getConnection() throws SQLException {
+		String jdbc_driver="oracle.jdbc.OracleDriver";
+		String db_url="jdbc:oracle:thin:@localhost:1521:xe";
+		try {
+			Class.forName(jdbc_driver);
+			Connection conn = DriverManager.getConnection(db_url,"system","1111");
+			return conn;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public void closeDBResources(ResultSet rs, Statement stmt, Connection conn) {
+		if(rs!=null) {
+			try {
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+		if(stmt!=null) {
+			try {
+				stmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+		if(conn!=null) {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+	}
+	public void closeDBResources(ResultSet rs, PreparedStatement pstmt, Connection conn) {
+		if(rs!=null) {
+			try {
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+		if(pstmt!=null) {
+			try {
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+		if(conn!=null) {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}		
+	}
+}
+
+

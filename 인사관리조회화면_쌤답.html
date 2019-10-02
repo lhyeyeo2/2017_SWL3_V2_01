@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    fieldset{line-height:180%}
+    </style>
+</head>
+<body>
+    <!---->
+    <!--label for=a1-->
+    <!--divfh  나누던지 뭘??-->
+    <!--적용됬으나 표준은 checked="checked"-->
+    <!--input name="l1" 양쪽에 적용해야 !둘중에 한개만 선택이 가능함.-->
+    <fieldset>
+        <legend>인사관리조회</legend>
+        <input name="l1" type="radio" id="a1">
+        <label  for=a1>사원번호로 조회</lavel>
+        <input type="text">
+        <br>
+        <input name="l1" type="radio" checked="checked">    
+        <label>부서명으로 조회</label>
+        <select height:64px>
+            <option>인사부</option>
+            <option>총무부</option>
+            <option>관리부</option>
+            <input class="submit" type="submit" value="조회">
+            <button>취소</button>
+        </select>
+    </fieldset>
+</body>
+</html>
+
